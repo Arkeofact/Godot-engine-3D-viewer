@@ -1,0 +1,17 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/nucleus.obj-afb83cbb940a99f7329c5cc7a384b09f.mesh"
+
+[deps]
+
+files=[ "res://.import/nucleus.obj-afb83cbb940a99f7329c5cc7a384b09f.mesh" ]
+
+source_file="res://mod/nucleus.obj"
+dest_files=[ "res://.import/nucleus.obj-afb83cbb940a99f7329c5cc7a384b09f.mesh", "res://.import/nucleus.obj-afb83cbb940a99f7329c5cc7a384b09f.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )

@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://mats/nucleus.material" type="Material" id=1]
+[ext_resource path="res://mod/nucleus.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://Viewer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scripts/Slider_test.gd" type="Script" id=4]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.521841, 0.428474, -0.737625, 0.102254, 0.827045, 0.552757, 0.846892, -0.363877, 0.387773, 0, 2.45773, 1.78228 )
+light_energy = 1.08
+light_bake_mode = 0
+shadow_enabled = true
+shadow_bias = 2.44
+
+[node name="nucleus" type="MeshInstance" parent="."]
+material_override = ExtResource( 1 )
+mesh = ExtResource( 2 )
+material/0 = null
+
+[node name="Camera" parent="." instance=ExtResource( 3 )]
+
+[node name="ui" type="Control" parent="."]
+modulate = Color( 1, 0.980469, 0.980469, 1 )
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -303.0
+margin_bottom = 64.0
+rect_clip_content = true
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.0
+
+[node name="HSlider" type="HSlider" parent="ui"]
+margin_left = 12.0
+margin_top = 2.0
+margin_right = 297.0
+margin_bottom = 53.0
+mouse_filter = 1
+max_value = 15.0
+step = 0.1
+ticks_on_borders = true
+script = ExtResource( 4 )
+
+[node name="lumiere" type="Label" parent="ui"]
+margin_right = 295.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+text = "lumiere directe"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+
+[node name="power" type="Label" parent="ui"]
+margin_left = 14.0
+margin_top = 45.0
+margin_right = 66.0
+margin_bottom = 59.0
+text = "Niveau :"
+
+[node name="Label" type="Label" parent="ui"]
+margin_left = 82.0
+margin_top = 45.0
+margin_right = 122.0
+margin_bottom = 59.0
+text = "test"
+
+[connection signal="mouse_entered" from="ui/HSlider" to="ui/HSlider" method="_on_HSlider_mouse_entered"]
+[connection signal="mouse_exited" from="ui/HSlider" to="ui/HSlider" method="_on_HSlider_mouse_exited"]
+[connection signal="value_changed" from="ui/HSlider" to="ui/HSlider" method="_on_HSlider_value_changed"]
